@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+</head>
+<body class="app">
+  <link rel="stylesheet" href="bundle.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="container" id="AppPlaceHolder"></div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+  <script src="bundle.js" async></script>
+</body>
+</html>
+
+
+<template id="noteTemplate">
+  <div  class="note card" data-index="0" >
+    <div class="overlay-background" onClick="app.saveNoteAndClose(event)"></div>
+    <div class="note-content">
+      <h2 data-placeholder="title" class="note-title" onClick="app.makeTaskEditable(event)">
+        <button class="btn btn-sm bmd-btn-fab btn-icon btn-pin"> 
+          <i class="fa fa-thumb-tack"></i>
+        </button>
+      </h2>
+      <section data-placeholder="task" class="note-body" onClick="app.makeTaskEditable(event)"></section>
+      <footer class="note-footer">
+        <div class="note-labels"></div>
+        <div class="note-footer-actions">
+        </div>
+      </footer>
+    </div>
+  </div>
+</template>
+
+<template id="appTemplate">
+  <div id="App">
+    <div class="create-task-wrapper">
+      <div class="btn btn-create-new-task" onClick="app.addNewTask()">
+        Add New Task
+      </div>  
+    </div>
+    <div id="task-list"></div>
+  </div>
+</template>
+
+<template id="label">
+  <div class="tag" data-label="">
+    <div class="text"></div>
+    <button class="close" onClick="app.removeLabel(event)">&times;</button>
+  </div>
+</template>
+
+<template id="colorPalleteTemplate">
+  <div class="dropdown btn-pallet">
+    <button class="btn btn-icon dropdown-toggle" type="button" 
+            aria-haspopup="true" aria-expanded="false">
+      <i class="icon-pallet"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <ul class="color-pallet-list"></ul>
+    </div>
+  </div>
+</template>
+
+<template id="labelDropDownTemplate">
+  <div class="dropdown btn-label">
+    <button class="btn btn-icon dropdown-toggle" data-toggle="dropdown" type="button"
+            aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-tag"></i>
+    </button>
+    <div class="dropdown-menu label-dropdown-menu" aria-labelledby="dropdownMenuButton" >
+      <ul class="label-list"></ul>
+    </div>
+  </div>
+</template>
+
+<template id="label-item">
+  <li class="label-item" data-label="" onClick="app.setLabel(event)">
+    <span class="check-box">
+      <i class="fa fa-check"></i>
+    </span>
+    <span class="label-text"></span>
+  </li>
+</template>
+
+
+<template id="pallet-item">
+  <li class="pallet-item" 
+    data-color="" 
+    onClick="app.setColor(event)">
+      <i class="fa fa-check"></i>
+    </li>
+</template>

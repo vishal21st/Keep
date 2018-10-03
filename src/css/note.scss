@@ -1,0 +1,192 @@
+.note {
+  width: auto;
+  display: inline-block;
+  .note-content {
+    width: 300px;
+  }
+
+  .note-title {
+    padding: 10px 20px 0 10px;
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .note-body {
+    padding: 15px 10px;
+  }
+
+  .note-footer {
+    padding: 0 10px 10px 10px;
+  }
+
+  .btn-pin {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .color-pallet-list {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .btn-pallet {
+    display: inline-block;
+  }
+
+  .btn-pallet,.btn-label {
+    margin: 4px;
+  }
+
+  .pallet-item {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+    line-height: 25px;
+    >.fa {
+      display: none;
+    }
+
+    &.selected {
+      >.fa {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.is-editable {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    background: transparent;
+    &:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: 1px;
+      height: 100%;
+    }
+    
+    .overlay-background {
+      display: block;
+    }
+
+    >.note-content {
+      text-align: left;
+      display: inline-block;
+      vertical-align: middle;
+      margin: auto;
+      position: relative;
+      width: 600px;
+    }
+  }
+
+  .overlay-background {
+    background: rgba(225,225,225,.8);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .dropdown.btn-pallet {
+    &:hover {
+      .dropdown-menu {
+        display: block;
+        transform: scale(1);
+        opacity: 1;
+        top: 80%;
+      }
+    }
+  }
+
+  .label-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    .label-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .label-item {
+    padding: 0 5px;
+    margin-bottom: 10px;
+  }
+
+  .check-box {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 10px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid;
+    margin-right: 5px;
+    .fa {
+      display: none;
+    }
+
+    &.checked {
+      .fa {
+        display: inline-block;
+      }
+    }
+  }
+
+  .btn-pallet,.btn-label {
+    display: inline-block;
+  }
+
+  .note-labels {
+
+  }
+
+  .tag {
+    display: inline-block;
+    background: #ededed;
+    border-radius: 2px;
+    padding: 4px 7px;
+    position: relative;
+    margin: 3px;
+    &:hover {
+      cursor: pointer;
+      .close {
+        opacity: 1;
+      }
+    }
+
+    .close {
+      transition: all .3s;
+      float: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding: 4px;
+      z-index: 2;
+      background: rgba(225, 225,225, .7);
+      opacity: 1;
+      opacity: 0;
+    }
+  }
+
+  .create-task-wrapper {
+    text-align: right;
+  }
+}

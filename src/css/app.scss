@@ -1,0 +1,33 @@
+html, body,.app {
+  position: relative;
+  height: 100%;
+}
+
+[contenteditable]:empty:before {
+  content: attr(data-placeholder);
+  color: grey;
+  display: inline-block;
+}
+
+[contenteditable]:focus{
+  outline: none;
+}
+
+.app {
+  background: #e8e8e8;
+  .btn-create-new-task {
+    display: inline-block;
+    text-align: left;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+    border: solid transparent;
+    &:hover {
+      cursor: text;
+      background: #ffffffff;
+    }
+  }
+
+  .create-task-wrapper {
+    text-align: center;
+    margin: 40px 0; 
+  }
+}
